@@ -1,0 +1,10 @@
+name: sit
+version: 1.0.0
+author: //the author's name
+main: com.gmx.mattcha.sit.MainClass
+api-version: 1.14
+
+commands:
+  sit:
+    description: You can sit down
+    usage: /sit
