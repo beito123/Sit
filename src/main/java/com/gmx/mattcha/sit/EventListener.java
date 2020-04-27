@@ -1,5 +1,14 @@
 package com.gmx.mattcha.sit;
 
+/*
+	sit
+
+ 	Copyright (c) 2020 beito
+
+	This software is released under the LGPLv3.
+	https://www.gnu.org/licenses/lgpl-3.0.html
+*/
+
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
