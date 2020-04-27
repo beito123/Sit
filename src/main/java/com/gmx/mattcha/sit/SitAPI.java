@@ -54,8 +54,9 @@ public class SitAPI {
         entity.setGravity(false);
         entity.addPotionEffect(new PotionEffect(PotionEffectType.INVISIBILITY,
                 9999999, 1, false, false ,false));
-        entity.teleport(pos);
+        //entity.teleport(pos);
         entity.addPassenger(player);
+        entity.setRotation(player.getLocation().getYaw(), player.getLocation().getPitch());
 
         this.chairs.put(player.getUniqueId(), entity);
     }

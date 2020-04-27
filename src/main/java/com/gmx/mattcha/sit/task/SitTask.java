@@ -16,15 +16,22 @@ public class SitTask extends TimerTask {
         Map<UUID, LivingEntity> chairs = SitAPI.getAPI().getAllChairs();
 
         for (Map.Entry<UUID, LivingEntity> entry : chairs.entrySet()){
-            LivingEntity entity = entry.getValue();
-            List<Entity> passengers = entity.getPassengers();
+            LivingEntity chair = entry.getValue();
+            List<Entity> passengers = chair.getPassengers();
             if (passengers.size() == 0) {
                 return;
             }
 
             Entity pass = passengers.get(0);
-            Location location = pass.getLocation();
-            entity.setRotation(location.getYaw(), location.getPitch());
+            Location passPos = pass.getLocation();
+            float yaw = passPos.getYaw();
+
+            float diffYaw = yaw - chair.getLocation().getYaw();
+            if (Math.abs(diffYaw) < 60) {
+                return;
+            }
+
+            chair.setRotation(passPos.getYaw(), passPos.getPitch());
         }
     }
 }

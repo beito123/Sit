@@ -3,6 +3,7 @@ package com.gmx.mattcha.sit;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
+import org.bukkit.Location;
 import org.bukkit.block.Block;
 import org.bukkit.block.data.Bisected;
 import org.bukkit.block.data.BlockData;
@@ -44,7 +45,7 @@ public class EventListener implements Listener {
     }
 
     @EventHandler
-    public void on2(PlayerMoveEvent event) {
+    public void onMove(PlayerMoveEvent event) {
         if (!SitAPI.getAPI().IsSat(event.getPlayer())) {
             return;
         }
@@ -83,10 +84,15 @@ public class EventListener implements Listener {
         }
 
         Block block = event.getClickedBlock();
+        if (block == null) {
+            return;
+        }
+
         BlockData blockData = block.getBlockData();
 
-        if (blockData instanceof Stairs) { // Bad codes
-            if (((Stairs) blockData).getHalf() != Bisected.Half.BOTTOM) {
+        if (blockData instanceof Stairs) {
+            Stairs stairs = (Stairs) blockData;
+            if (stairs.getHalf() != Bisected.Half.BOTTOM) {
                 return;
             }
 
@@ -97,7 +103,10 @@ public class EventListener implements Listener {
                 return;
             }
 
-            SitAPI.getAPI().sit(player, block.getLocation().add(0.5, -0.34, 0.5));
+            Location adjust = new Location(block.getWorld(),0.5, -0.41, 0.5);
+            adjust.subtract(stairs.getFacing().getDirection().multiply(0.2));
+
+            SitAPI.getAPI().sit(player, block.getLocation().add(adjust));
         } else if (blockData instanceof Slab) {
             if (((Slab) blockData).getType() != Slab.Type.BOTTOM) {
                 return;
