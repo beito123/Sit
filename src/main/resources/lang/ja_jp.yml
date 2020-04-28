@@ -1,0 +1,10 @@
+# japanese lang file for Sit
+
+command.sit.description: "その場に座ります。"
+command.sit.ingame: "§4ゲーム内で実行してください。"
+command.sit.ok: "§6座りました！ 左Shiftすると立ち上がれます。"
+command.sit.standup: "§6立ち上がりました。"
+command.sit.tooFar: "§6ブロックが遠すぎます。"
+command.sit.flying: "§6飛行中は座ることはできません。"
+command.sit.swimming: "§6泳ぎの状態で座ることはできません。"
+command.sit.sleeping: "§6寝ている間に座ることはできません。"

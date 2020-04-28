@@ -9,9 +9,6 @@ package com.gmx.mattcha.sit;
 	https://www.gnu.org/licenses/lgpl-3.0.html
 */
 
-import net.md_5.bungee.api.ChatColor;
-import net.md_5.bungee.api.ChatMessageType;
-import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
 import org.bukkit.block.data.Bisected;
@@ -107,8 +104,7 @@ public class EventListener implements Listener {
 
             double distance = block.getLocation().add(0.5, 0, 0.5).distance(player.getLocation());
             if (distance > 3.5) {
-                player.spigot().sendMessage(ChatMessageType.ACTION_BAR,
-                        TextComponent.fromLegacyText(ChatColor.YELLOW + "<Sit> ブロックが遠すぎます。"));
+                SitAPI.getAPI().getMessage().sendActionBar(player, "command.sit.tooFar");
                 return;
             }
 
@@ -123,8 +119,7 @@ public class EventListener implements Listener {
 
             double distance = block.getLocation().add(0.5, 0, 0.5).distance(player.getLocation());
             if (distance > 3.5) {
-                player.spigot().sendMessage(ChatMessageType.ACTION_BAR,
-                        TextComponent.fromLegacyText(ChatColor.YELLOW + "<Sit> ブロックが遠すぎます。"));
+                SitAPI.getAPI().getMessage().sendActionBar(player, "command.sit.tooFar");
                 return;
             }
 

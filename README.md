@@ -1,28 +1,24 @@
 # Sit
 
-地面や階段などに座ることができるようになります。
+You can sit down at the ground, stairs and slabs;
 
 ![Image](https://cldup.com/HCbu_5Az84.png)
 
-## ダウンロード
+## Download
 
-- [From Releases](https://github.com/beito123/Sit/releases/tag/v1.0.0)
+- [From Releases](https://github.com/beito123/Sit/releases)
 - [Dist Folder](https://github.com/beito123/Sit/tree/master/dist)
 
-## 使い方
+## Usage
 
-``/sit``コマンドで座ることができます。
+Run ``/sit`` Command to sit down.
 
-その後、階段やハーフブロックをタップすることで、それらに座ることができます。
+After that, Tap at stairs and slabs to sit down.
 
-### コマンド
+### Command
 
-    /sit - その場に座ります。
+    /sit - Sit down here.
 
-## 既知の問題
+## Known issues
 
-- 階段やハーフブロックに座ったときに、一瞬埋まったようになる。(issue #1)
-
-## TODO
-
-- Support localization.
+- When I sit at stairs and slabs, I will be buried temporarily. (issue #1)

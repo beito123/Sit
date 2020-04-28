@@ -9,24 +9,25 @@ package com.gmx.mattcha.sit;
 	https://www.gnu.org/licenses/lgpl-3.0.html
 */
 
+import com.gmx.mattcha.sit.util.CustomMessage;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.entity.Bat;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
+import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 public class SitAPI {
 
-    public static SitAPI INSTANCE = new SitAPI();
+    public static SitAPI INSTANCE;
 
-    protected SitAPI() {
+    protected SitAPI(JavaPlugin plugin) {
+        init(plugin);
         INSTANCE = this;
     }
 
@@ -34,7 +35,18 @@ public class SitAPI {
         return INSTANCE;
     }
 
+
+    protected CustomMessage msg;
     private Map<UUID, LivingEntity> chairs = new HashMap<>();
+
+    protected void init(JavaPlugin plugin) {
+        List<String> langList = Arrays.asList("en_us", "ja_jp");
+        this.msg = new CustomMessage(plugin, langList, "en_us");
+    }
+
+    public CustomMessage getMessage() {
+        return this.msg;
+    }
 
     public boolean IsSat(Player player) {
         return this.chairs.containsKey(player.getUniqueId());

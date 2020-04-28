@@ -1,6 +1,6 @@
-name: sit
-version: 1.0.1
-author: //the author's name
+name: @name@
+version: @version@
+author: bei2
 main: com.gmx.mattcha.sit.MainClass
 api-version: 1.14
 
@@ -8,3 +8,13 @@ commands:
   sit:
     description: You can sit down
     usage: /sit
+    permission: sit.command.sit
+
+permissions:
+  sit:
+    children:
+      sit.command:
+        children:
+          sit.command.sit:
+            description: Allow a player to sit
+            default: true

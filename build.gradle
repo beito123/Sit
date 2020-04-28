@@ -1,13 +1,15 @@
+import org.apache.tools.ant.filters.ReplaceTokens
+
 apply plugin: 'java'
 
 group 'com.gmx.mattcha'
-version '1.0.1'
+version '1.0.2'
 
 sourceCompatibility = 1.8
 
 def out = project.hasProperty('out') ? project.out : './dist'
 
-jar.archiveName = name + ".jar"
+jar.archiveFileName = name + ".jar"
 
 repositories {
     mavenCentral()
@@ -27,10 +29,22 @@ tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
 
+tasks.processResources {
+    filesMatching("**/plugin.yml") {
+        filter(
+            ReplaceTokens,
+            tokens: [
+                name   : project.rootProject.name,
+                version: version,
+            ]
+        )
+    }
+}
+
 /* put jar files to dist after building */
 build.doLast {
     copy {
-        from jar.archivePath
+        from jar.archiveFile
         into out
     }
 }
