@@ -16,18 +16,18 @@ import org.bukkit.entity.Bat;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
-import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
 
 public class SitAPI {
 
-    public static SitAPI INSTANCE;
+    protected static SitAPI INSTANCE = new SitAPI();
 
-    protected SitAPI(JavaPlugin plugin) {
-        init(plugin);
+    protected SitAPI() {
         INSTANCE = this;
     }
 
@@ -35,17 +35,15 @@ public class SitAPI {
         return INSTANCE;
     }
 
-
     protected CustomMessage msg;
     private Map<UUID, LivingEntity> chairs = new HashMap<>();
 
-    protected void init(JavaPlugin plugin) {
-        List<String> langList = Arrays.asList("en_us", "ja_jp");
-        this.msg = new CustomMessage(plugin, langList, "en_us");
-    }
-
     public CustomMessage getMessage() {
         return this.msg;
+    }
+
+    public void setMessage(CustomMessage msg) {
+        this.msg = msg;
     }
 
     public boolean IsSat(Player player) {

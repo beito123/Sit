@@ -8,3 +8,5 @@ command.sit.tooFar: "§6ブロックが遠すぎます。"
 command.sit.flying: "§6飛行中は座ることはできません。"
 command.sit.swimming: "§6泳ぎの状態で座ることはできません。"
 command.sit.sleeping: "§6寝ている間に座ることはできません。"
+
+system.localization.updated: "§bSitプラグインの言語ファイルが更新されました。必要であれば、%0 から翻訳を変更できます。"

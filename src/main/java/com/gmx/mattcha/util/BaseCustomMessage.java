@@ -16,7 +16,7 @@ public class BaseCustomMessage {
     public BaseCustomMessage() {
     }
 
-    private String replaceMessage(String msg, String ...args) {
+    protected String replaceMessage(String msg, String ...args) {
         if (args == null) {
             return msg;
         }

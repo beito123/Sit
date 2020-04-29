@@ -8,3 +8,5 @@ command.sit.tooFar: "§6Too far the block."
 command.sit.flying: "§6Unable to sit down while flying"
 command.sit.swimming: "§6Unable to sit down while swimming."
 command.sit.sleeping: "§6Unable to sit down while sleeping."
+
+system.localization.updated: "§bUpdated lang files of Sit Plugin. You can change translations from %0 if you need."

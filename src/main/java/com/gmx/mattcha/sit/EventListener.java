@@ -62,7 +62,7 @@ public class EventListener implements Listener {
     }
 
     @EventHandler
-    public void onStandup(VehicleEnterEvent event) {
+    public void onEnterVehicle(VehicleEnterEvent event) {
         Entity entity = event.getEntered();
         if (!(entity instanceof Player)) {
             return;
@@ -72,7 +72,7 @@ public class EventListener implements Listener {
     }
 
     @EventHandler
-    public void onStandup(VehicleExitEvent event) {
+    public void onExitVehicle(VehicleExitEvent event) {
         Entity entity = event.getExited();
         if (!(entity instanceof Player)) {
             return;
